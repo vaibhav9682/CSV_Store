@@ -1,2 +1,26 @@
+<link rel="stylesheet" href="/css/dashboard.css">
 
-<h1> dash</h1>
+<h1>Dashboard</h1>
+<div class="file-container">
+    <ul>
+        <%for(file of files){%>
+
+            <li>
+                <p>
+                    <a href="/file/data/<%=file._id%>">
+                        <%=file.fileName%>
+                    </a>
+                </p>
+                <p>
+                    <span>Size : </span>
+                    <%=file.size%>
+                </p>
+                <a href="/file/delete/<%=file.id%>">
+                    delete
+                </a>
+            </li>
+
+            <%}%>
+    </ul>
+
+</div>

@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/css/sheet.css">
+<div class="info">
+    <div class="left-section">
+        <p>
+            <span>File Name:&nbsp;&nbsp;</span>
+            <%=fileName%>
+        </p>
+        <p>
+            <span>File size:&nbsp;&nbsp;</span>
+            <%=size%>
+        </p>
+    </div>
+    <div class="right-section">
+        <input type="text" id="searchBox" name="block" placeholder="eg: row_column (5_B)" onchange="findBlock(value)">
+    </div>
+</div>
+
+<div class="sheet">
+
+    <table>
+
+        <thead>
+            <tr>
+                <%for(let h=0 ,c=0, d=0, n=0; h<100; h++, d++){%>
+                    <% let letter=String.fromCharCode(d+65) %>
+
+                        <%if(h!=0 && h%26==0){%>
+
+                            <%c=String.fromCharCode(n+65)%>
+                                <%n++%>
+                                    <% d=0 %>
+                                        <% letter=String.fromCharCode(d+65) %>
+
+                                            <%}%>
+                                                <%if(typeof c==='string' ){%>
+                                                    <%letter=c+letter%>
+                                                        <%}%>
+                                                            <th>
+                                                                <%= letter%>
+                                                            </th>
+
+                                                            <%}%>
+            </tr>
+
+        </thead>
+        <tbody id="table-body">
+
+            <%for(let j=1; j<=100; j++){%>
+                <tr>
+                    <%for(let i=1; i<=100; i++){%>
+
+                        <%if(i==1){%>
+                            <td>
+                                <%=j%>
+                            </td>
+                            <%}else{%>
+                                <td id=<%=`${j}_${i}`%>>body</td>
+
+                                <%}%>
+                                    <%}%>
+                </tr>
+                <%}%>
+
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<script src="/js/sheet.js"></script>

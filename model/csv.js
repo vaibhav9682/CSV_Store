@@ -5,7 +5,8 @@ const csvSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    data: []
+    data: [],
+    size: String
 },
     { timestamps: true }
 )

@@ -8,9 +8,9 @@
   position: fixed;
   top: 0;
 }
-body {
+/* body {
   overflow: hidden;
-}
+} */
 .headerContainer p {
   font-weight: bolder;
 }
@@ -27,7 +27,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
-a {
+.leftSection a {
   text-decoration: none;
   color: rgb(50, 152, 192);
 }

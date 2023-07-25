@@ -6,6 +6,7 @@ const upload = multer()
 
 router.post('/upload', upload.single('csvFile'), fileController.upload)
 router.get('/dashboard', fileController.dashboard)
-
+router.get('/delete/:id', fileController.delete)
+router.get('/data/:id', fileController.dataSheet)
 
 module.exports = router

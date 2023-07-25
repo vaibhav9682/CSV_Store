@@ -2,18 +2,21 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const csvParser = require('csv-parser');
 const { Readable } = require('stream');
-const dbSchema = require('../model/csv')
+const csv = require('../model/csv')
+
+
 
 module.exports.upload = async (req, res) => {
 
-
-
     try {
         const fileBuffer = req.file.buffer;
+        const size = formatBytes(req.file.size)
         const results = await parseCSV(fileBuffer);
-        await dbSchema.create({
+
+        await csv.create({
             fileName: req.body.fileName,
-            data: results
+            data: results,
+            size: size
         })
 
     } catch (error) {
@@ -23,6 +26,16 @@ module.exports.upload = async (req, res) => {
     return res.redirect('/')
 }
 
+// to calculate the file size
+function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// to parse the csv data
 function parseCSV(fileBuffer) {
     return new Promise((resolve, reject) => {
         const results = [];
@@ -35,6 +48,7 @@ function parseCSV(fileBuffer) {
             .pipe(csvParser())
             .on('data', (data) => results.push(data))
             .on('end', () => {
+
                 resolve(results);
             })
             .on('error', (error) => {
@@ -43,8 +57,38 @@ function parseCSV(fileBuffer) {
     });
 }
 
-module.exports.dashboard = (req, res) => {
 
-    return res.render('dashboard')
 
+module.exports.dashboard = async (req, res) => {
+
+    const files = await csv.find({})
+
+
+    return res.render('dashboard', {
+        files: files
+    })
+
+}
+
+
+module.exports.dataSheet = async (req, res) => {
+    let id = req.params.id
+    const file = await csv.findById(id)
+    // console.log(file)
+
+    return res.render('dataSheet', {
+        fileName: file.fileName,
+        data: file.data,
+        size: file.size
+    })
+}
+
+
+// delete the selected file
+module.exports.delete = async (req, res) => {
+
+    let id = req.params.id
+    await csv.findByIdAndDelete(id)
+
+    return res.redirect('back')
 }
