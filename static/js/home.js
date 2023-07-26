@@ -15,7 +15,7 @@ fileInput.addEventListener('change', (event) => {
     }
 });
 
-// Function to format file size in a human-readable format
+// Function to format file size 
 
 function formatBytes(bytes) {
     if (bytes === 0) return '0 Bytes';

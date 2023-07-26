@@ -1,19 +1,19 @@
 /* Header */
 .headerContainer {
   width: 100%;
-
+  font-family: Arial, sans-serif;
   box-shadow: rgba(11, 68, 121, 0.1) 0px 10px 15px -3px,
     rgba(117, 164, 236, 0.05) 0px 4px 6px -2px;
   background-color: white;
   position: fixed;
   top: 0;
 }
-/* body {
-  overflow: hidden;
-} */
+
+
 .headerContainer p {
   font-weight: bolder;
 }
+
 .leftSection {
   height: 9vh;
   width: 30%;

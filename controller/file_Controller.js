@@ -5,7 +5,7 @@ const { Readable } = require('stream');
 const csv = require('../model/csv')
 
 
-
+// to upload the file
 module.exports.upload = async (req, res) => {
 
     try {
@@ -58,7 +58,7 @@ function parseCSV(fileBuffer) {
 }
 
 
-
+// dashboard
 module.exports.dashboard = async (req, res) => {
 
     const files = await csv.find({})
@@ -70,16 +70,24 @@ module.exports.dashboard = async (req, res) => {
 
 }
 
-
+// data sheet 
 module.exports.dataSheet = async (req, res) => {
     let id = req.params.id
     const file = await csv.findById(id)
     // console.log(file)
+    const dataObj = file.data[0]
+    let headerArr = []
+    for (key in dataObj) {
+        headerArr.push(key);
+        // console.log(key)
+    }
 
     return res.render('dataSheet', {
         fileName: file.fileName,
         data: file.data,
-        size: file.size
+        size: file.size,
+        head: headerArr,
+
     })
 }
 
@@ -92,3 +100,4 @@ module.exports.delete = async (req, res) => {
 
     return res.redirect('back')
 }
+

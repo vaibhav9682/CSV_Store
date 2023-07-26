@@ -7,21 +7,16 @@ body {
 }
 
 .sheet {
-  /* padding: 5px; */
-  /* border: 1px solid red; */
   width: auto;
   height: 75vh;
-  cursor: all-scroll;
   overflow: scroll;
+  margin-left: 3px;
+  border-radius: 10px 0 0 0;
 }
-/* 
-.sheet::-webkit-scrollbar {
-  display: none;
-} */
 
 table {
   border-collapse: collapse;
-  border: 2px solid rgb(200, 200, 200);
+  border: 2px solid rgb(0, 0, 0);
   letter-spacing: 1px;
   font-size: 0.8rem;
 }
@@ -43,7 +38,7 @@ thead tr {
 }
 
 td {
-  text-align: center;
+  /* text-align: center; */
 }
 
 tr:nth-child(even) td {
@@ -82,4 +77,8 @@ tr:nth-child(odd) td {
 #table-body .selected {
   background-color: rgb(241, 77, 77);
   color: white;
+}
+.head-bold {
+  background-color: rgb(211, 211, 211) !important;
+  font-weight: bold;
 }

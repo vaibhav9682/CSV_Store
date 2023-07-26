@@ -28,10 +28,7 @@ const findBlock = async (val) => {
         val = fNum + '_' + mult
     }
 
-    console.log(val)
-
-
-
+   
 
 
 
@@ -44,7 +41,7 @@ const findBlock = async (val) => {
         block.classList.add("selected")
 
     }
-    // console.log(val)
+   
 
 }
 

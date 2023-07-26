@@ -21,7 +21,7 @@
 
         <thead>
             <tr>
-                <%for(let h=0 ,c=0, d=0, n=0; h<100; h++, d++){%>
+                <%for(let h=0 ,c=0, d=0, n=0; h<60; h++, d++){%>
                     <% let letter=String.fromCharCode(d+65) %>
 
                         <%if(h!=0 && h%26==0){%>
@@ -35,6 +35,7 @@
                                                 <%if(typeof c==='string' ){%>
                                                     <%letter=c+letter%>
                                                         <%}%>
+
                                                             <th>
                                                                 <%= letter%>
                                                             </th>
@@ -45,19 +46,37 @@
         </thead>
         <tbody id="table-body">
 
-            <%for(let j=1; j<=100; j++){%>
+            <%for(let j=1; j<=500; j++){%>
                 <tr>
-                    <%for(let i=1; i<=100; i++){%>
+                    <%for(let i=1; i<=60; i++){%>
 
                         <%if(i==1){%>
                             <td>
                                 <%=j%>
                             </td>
-                            <%}else{%>
-                                <td id=<%=`${j}_${i}`%>>body</td>
+                            <%}else if(head.length>=i && j==1){%>
+                                <td id=<%=`${j}_${i}`%> class="head-bold"><%=head[i-1]%></td>
 
-                                <%}%>
-                                    <%}%>
+                                <%}else if(data.length>=j+1){%>
+
+                                    <%let obj=data[j-2]%>
+                                        <%let arr=[]%>
+                                            <%for(key in obj){%>
+                                                <%let val=obj[key]%>
+
+                                                    <%arr.push(val)%>
+                                                        <%}%>
+                                                            <td id=<%=`${j}_${i}`%>>
+                                                                <%=arr[i-1]%>
+
+                                                            </td>
+                                                            <%}else{%>
+                                                                <td id=<%=`${j}_${i}`%>></td>
+
+                                                                <%}%>
+
+
+                                                                    <%}%>
                 </tr>
                 <%}%>
 

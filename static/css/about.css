@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+  color: rgb(36, 29, 139);
+}
+
+h3 {
+  text-align: center;
+}
+
+.discription {
+  width: 60%;
+  height: auto;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+.discription div {
+  margin-bottom: 50px;
+}
+
+p:not(#address) {
+  color: rgb(160, 160, 160);
+}

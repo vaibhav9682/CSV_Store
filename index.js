@@ -3,15 +3,11 @@ const app = express();
 const port = 4000;
 const db = require('./config/mongoose')
 
+// for layouts
 const expressLayouts = require('express-ejs-layouts')
 
 
-
-
-
-
-
-
+// for static files
 app.use(express.static('./static'))
 app.use(expressLayouts);
 
@@ -21,20 +17,12 @@ app.set('layout extractStyles', true)
 app.set("layout extractScripts", true)
 
 
-// express server setup
-
 // setup views
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 
-
-
-
-
 app.use('/', require('./routes'))
-
-
 
 
 app.listen(port, (err) => {

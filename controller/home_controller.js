@@ -3,6 +3,8 @@ module.exports.home = (req, res) => {
 }
 
 
-// module.exports.about = (req, res) => {
-//     return res.render('about')
-// }
+module.exports.about = (req, res) => {
+
+    return res.render('about')
+
+}
