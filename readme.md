@@ -14,7 +14,7 @@ Welcome to CSV Store, the ultimate web application that simplifies the storage a
 - A dashboard to locate all the files
 - convenient data view in table
 - table upto 500 rows
-- A column-vise search box.
+- A column-wise search box.
 
 
 ## Tech Stack
@@ -33,7 +33,7 @@ Welcome to CSV Store, the ultimate web application that simplifies the storage a
 - In the ALL FILES option on the header user can see all the uploaded files with the size and name.
 - To see file data user can select a particular file by clicking on the file's name.
 - After selecting the file user can see all the data of the select file.
-- User can search the data culumn vise in the serch box.
+- User can search the data culumn-wise in the serch box.
 - The format of serching will be ROW_COLUMN.
 
 
