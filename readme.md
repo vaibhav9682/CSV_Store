@@ -14,7 +14,7 @@ Welcome to CSV Store, the ultimate web application that simplifies the storage a
 - A dashboard to locate all the files
 - convenient data view in table
 - table upto 500 rows
-- A column wise search box.
+- A column-vise search box.
 
 
 ## Tech Stack
